@@ -1,4 +1,4 @@
-package com.code.challenge;
+package com.code.challenge.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

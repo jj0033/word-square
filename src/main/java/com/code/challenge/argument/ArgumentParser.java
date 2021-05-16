@@ -1,4 +1,4 @@
-package com.code.challenge;
+package com.code.challenge.argument;
 
 import com.code.challenge.obj.WordSquareInput;
 import org.springframework.stereotype.Component;

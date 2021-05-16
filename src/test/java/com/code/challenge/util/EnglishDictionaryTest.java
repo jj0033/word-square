@@ -1,4 +1,4 @@
-package com.code.challenge;
+package com.code.challenge.util;
 
 import org.junit.Assert;
 import org.junit.Before;
