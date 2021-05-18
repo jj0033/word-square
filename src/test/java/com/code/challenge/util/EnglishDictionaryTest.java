@@ -8,6 +8,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 
 public class EnglishDictionaryTest {
     private static final int TEST_WORD_LENGTH = 4;
@@ -22,15 +23,15 @@ public class EnglishDictionaryTest {
 
     @Test
     public void test_dictionary_instance_returns_expected_values() {
-        Collection<String> list = testDictionary.possibleWords(TEST_CHARS, TEST_WORD_LENGTH);
+        Collection<String> list = testDictionary.possibleWords(TEST_CHARS, TEST_WORD_LENGTH, 0, Collections.emptyList());
 
-        // Expect 2 words - "mean" and "maac"
+        // Expect 1 word - "mean"
         // "medd" -> only 1 d in char list
+        // "maac" -> only 2 'a's in char list - though 4 are needed for a vertical and horizontal spelling of the word.
         // "jase" -> no j or s
         // "maacc" -> enough correct letters in char array however word is incorrect length
-        Assert.assertEquals(2, list.size());
+        Assert.assertEquals(1, list.size());
         Assert.assertTrue(list.contains("mean"));
-        Assert.assertTrue(list.contains("maac"));
     }
 
     private EnglishDictionary generateTestInstance(Collection<String> words) throws InvocationTargetException, InstantiationException, IllegalAccessException {

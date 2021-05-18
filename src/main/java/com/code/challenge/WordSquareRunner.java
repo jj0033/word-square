@@ -4,7 +4,6 @@ import com.code.challenge.argument.ArgumentParser;
 import com.code.challenge.argument.ArgumentValidator;
 import com.code.challenge.obj.WordSquareInput;
 import com.code.challenge.solve.WordSquareSolver;
-import com.code.challenge.util.EnglishDictionary;
 import com.code.challenge.util.SolutionFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,18 +18,15 @@ public class WordSquareRunner implements CommandLineRunner {
 
     private final ArgumentParser argumentParser;
     private final ArgumentValidator argumentValidator;
-    private final EnglishDictionary dictionary;
     private final WordSquareSolver solver;
     private final SolutionFormatter solutionFormatter;
 
     public WordSquareRunner(ArgumentParser argumentParser,
                             ArgumentValidator argumentValidator,
-                            EnglishDictionary dictionary,
                             WordSquareSolver solver,
                             SolutionFormatter solutionFormatter) {
         this.argumentParser = argumentParser;
         this.argumentValidator = argumentValidator;
-        this.dictionary = dictionary;
         this.solver = solver;
         this.solutionFormatter = solutionFormatter;
     }
@@ -48,8 +44,7 @@ public class WordSquareRunner implements CommandLineRunner {
             throw e;
         }
 
-        Collection<String> validWords = dictionary.possibleWords(input.getChars(), input.getSize());
-        Collection<char[]> solutions = solver.solve(input, validWords);
+        Collection<char[]> solutions = solver.solve(input);
         String formattedSolution = solutionFormatter.formatSolution(solutions, input.getSize());
 
         System.out.println(formattedSolution);

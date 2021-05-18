@@ -9,7 +9,7 @@ import java.util.Collections;
 @Component
 public class WordSquareSolver {
 
-    public Collection<char[]> solve(WordSquareInput input, Collection<String> possibleWords) {
+    public Collection<char[]> solve(WordSquareInput input) {
         //TODO implement
         return Collections.emptyList();
     }
